@@ -1,13 +1,11 @@
-// app.js
 window.onload = async function () {
     const statusDiv = document.getElementById('status');
     const protectedContentDiv = document.getElementById('protected-content');
 
-    // Check if user is authenticated and authorized
     const checkSubscriptionAndFollow = async () => {
         try {
-            const youtubeRes = await fetch('/api/check-youtube-subscription');
-            const githubRes = await fetch('/api/check-github-follow');
+            const youtubeRes = await fetch('https://www.googleapis.com/youtube/v3');
+            const githubRes = await fetch('https://github.com/login/oauth/authorize');
 
             const youtubeData = await youtubeRes.json();
             const githubData = await githubRes.json();
